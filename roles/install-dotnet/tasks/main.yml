@@ -1,0 +1,7 @@
+---
+# tasks file for install-dotnet
+- name: download dotnet
+  command: wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb && sudo dpkg -i packages-microsoft-prod.deb 
+
+- name: return motd to registered var
+  command: sudo apt-get -y install apt-transport-https && sudo apt-get update -y && sudo apt-get install -y dotnet-sdk-2.2

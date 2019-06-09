@@ -6,3 +6,4 @@
     - mssql-install  
     - apache2-install  
     - olympus-install
+    - install-dotnet
