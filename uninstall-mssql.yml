@@ -1,0 +1,6 @@
+---
+
+- hosts: mssql
+  remote_user: root
+  roles:
+    - mssql-uninstall

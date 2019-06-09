@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  remote_user: root
+  roles:
+    - mssql-install  
+    - apache2-install  
+    - olympus-install

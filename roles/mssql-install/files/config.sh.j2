@@ -1,0 +1,24 @@
+#!/usr/bin/expect -f
+
+set p1 "Enter your edition(1-8):"
+set p2 "Enter the SQL Server system administrator password:"
+set p3 "Confirm the SQL Server system administrator password:"
+
+
+spawn sudo /opt/mssql/bin/mssql-conf setup
+
+expect "$p1\r"
+
+send  "3\r"
+
+expect "$p2\r"
+
+send  "QWerty123\r"
+
+expect "$p3\r"
+
+send  "QWerty123\r"
+
+expect eof
+
+

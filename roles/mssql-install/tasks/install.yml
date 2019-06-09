@@ -1,0 +1,50 @@
+---
+
+- name: install prerequisites
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - apt-transport-https
+  become: yes
+
+- name: add apt-key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+  become: yes
+
+- name: add repository
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items:
+    - deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/mssql-server-2017 xenial main
+    - deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/prod xenial main
+  become: yes
+
+- name: install mssql
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - mssql-server
+    - mssql-tools
+    - unixodbc-dev
+  environment:
+    ACCEPT_EULA: Y
+  become: yes
+
+- name: add to bin-path
+  file:
+    src: /opt/mssql-tools/bin/{{ item }}
+    dest: /usr/local/bin/{{ item }}
+    owner: root
+    group: root
+    state: link
+  with_items:
+    - sqlcmd
+    - bcp
+  become: yes

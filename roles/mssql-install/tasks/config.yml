@@ -1,0 +1,10 @@
+---
+- name: Copy file with owner and permissions
+  copy:
+    src: ../files/config.sh.j2
+    dest: /tmp/config.sh
+    owner: root
+    group: root
+    mode: '0777'
+- name: configure mssql
+  shell: /tmp/config.sh 

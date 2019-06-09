@@ -1,0 +1,7 @@
+[mssql]
+server1 ansible_ssh_host=192.168.1.35 
+[apache]
+server1 ansible_ssh_host=192.168.1.35
+[olympus]
+server1 ansible_ssh_host=192.168.1.35
+ 

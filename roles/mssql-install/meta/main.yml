@@ -1,0 +1,17 @@
+---
+
+galaxy_info:
+  author: Gunter Grodotzki
+  description: Installs SQL Server (2017).
+  company: weheartwebsites UG
+  license: MIT
+  min_ansible_version: 2.3
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+  galaxy_tags:
+    - system
+    - sql
+    - development
+dependencies: []

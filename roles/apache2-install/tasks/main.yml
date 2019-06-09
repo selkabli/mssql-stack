@@ -1,0 +1,20 @@
+---
+# tasks file for apache2-install
+- name: Install apache httpd but avoid starting it immediately (state=present is optional)
+  apt:
+    name: apache2
+    state: present
+  environment:
+    RUNLEVEL: 1
+
+- name: enabble proxy mode
+  command: a2enmod proxy proxy_http proxy_html
+
+- name: Copy file with owner and permissions
+  copy:
+    src: ../files/virt-host.conf.j2
+    dest: /etc/apache2/conf-enabled/aspnetcoredemo.conf
+    owner: root
+    group: root
+    mode: '0644'
+

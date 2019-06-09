@@ -1,0 +1,7 @@
+---
+
+dotnetcore_version_string_match: ".NET Command Line Tools \\({{ dotnetcore_version }}\\)"
+
+
+VERSION: "3"
+PASSWORD: "QWerty123"
